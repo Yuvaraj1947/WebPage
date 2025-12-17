@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Balaji Photo Studio | Studio Luxe</title>
+  <meta name="description" content="Balaji Photo Studio — Premium wedding, candid, baby, event, drone & pre-wedding photography. Studio Luxe experience in every frame."/>
+  <meta property="og:title" content="Balaji Photo Studio | Studio Luxe"/>
+  <meta property="og:description" content="Premium wedding, candid, baby, event, drone & pre-wedding photography."/>
+  <meta property="og:image" content="assets/images/hero.jpg"/>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">Balaji Photo Studio</div>
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="ctas">
+        <a class="btn btn-ghost" href="tel:+919591735725">Call</a>
+        <a class="btn" href="https://wa.me/919591735725">WhatsApp</a>
+      </div>
+      <button class="nav-toggle" aria-label="toggle menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero" style="background-image:url('assets/images/hero.jpg')">
+      <div class="hero-inner container">
+        <h1>Balaji Photo Studio — Studio Luxe</h1>
+        <p class="lead">Premium wedding, candid, baby, event & drone videography — crafting cinematic memories.</p>
+        <div class="hero-actions">
+          <a class="btn hero-btn" href="#contact">Book a Shoot</a>
+          <a class="btn btn-outline" href="https://wa.me/919591735725">WhatsApp Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section services">
+      <div class="container">
+        <h2 class="section-title">Services</h2>
+        <p class="section-sub">Creative categories tailored for every moment.</p>
+        <div class="services-grid">
+          <div class="service-card"><strong>Wedding Photography</strong><p>Cinematic wedding coverage, curated albums.</p></div>
+          <div class="service-card"><strong>Candid Photography</strong><p>Real moments captured with discretion and style.</p></div>
+          <div class="service-card"><strong>Baby Shoot</strong><p>Safe, adorable, carefully styled shoots.</p></div>
+          <div class="service-card"><strong>Event Photography</strong><p>Birthdays, corporate, family functions — full coverage.</p></div>
+          <div class="service-card"><strong>Drone & Videography</strong><p>Aerial shots and cinematic video storytelling.</p></div>
+          <div class="service-card"><strong>Pre-Wedding & Outdoor</strong><p>Stylized shoots at scenic locations.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="section portfolio">
+      <div class="container">
+        <h2 class="section-title">Featured Work</h2>
+        <p class="section-sub">A curated selection from recent shoots.</p>
+        <div class="gallery-grid">
+          <img src="assets/images/sample1.jpg" alt="Wedding sample" class="gallery-item">
+          <img src="assets/images/sample2.jpg" alt="Candid sample" class="gallery-item">
+          <img src="assets/images/sample3.jpg" alt="Baby shoot sample" class="gallery-item">
+          <img src="assets/images/sample4.jpg" alt="Event sample" class="gallery-item">
+          <img src="assets/images/sample5.jpg" alt="Drone sample" class="gallery-item">
+          <img src="assets/images/sample6.jpg" alt="Outdoor sample" class="gallery-item">
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section about">
+      <div class="container about-inner">
+        <div class="about-text">
+          <h2 class="section-title">About Balaji Photo Studio</h2>
+          <p>Balaji Photo Studio — Studio Luxe blends creative vision with professional lighting, premium editing, and warm client care. We specialize in weddings, candid photography, baby shoots, events, drone videography, pre-weddings, and outdoor shoots. Our goal is to craft images and films that hold emotion and tell stories.</p>
+          <ul class="about-list">
+            <li>5+ years of experience</li>
+            <li>Fast delivery & professional retouching</li>
+            <li>Comfortable studio environment</li>
+          </ul>
+        </div>
+        <div class="about-image">
+          <img src="assets/images/sample1.jpg" alt="Studio sample">
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+      <div class="container contact-grid">
+        <div>
+          <h2 class="section-title">Book Your Shoot</h2>
+          <p>Ready to create timeless photos? Reach out — we respond quickly.</p>
+          <p><strong>Call:</strong> <a href="tel:+919591735725">+91 9591735725</a></p>
+          <p><strong>WhatsApp:</strong> <a href="https://wa.me/919591735725">Chat on WhatsApp</a></p>
+          <p><strong>Email:</strong> <a href="mailto:balajistudio120@gmail.com">balajistudio120@gmail.com</a></p>
+          <p><strong>Location:</strong> Balaji Photo Studio Junipeth Ramdurg 591123 Dis:Belagavi</p>
+          <div class="contact-ctas">
+            <a class="btn" href="https://wa.me/919591735725">WhatsApp Booking</a>
+            <a class="btn btn-ghost" href="tel:+919591735725">Call Now</a>
+          </div>
+        </div>
+        <form id="contactForm" class="contact-form" onsubmit="return submitForm(event)">
+          <label><span>Name</span><input type="text" name="name" required></label>
+          <label><span>Phone</span><input type="tel" name="phone" required></label>
+          <label><span>Service</span>
+            <select name="service" required>
+              <option>Wedding Photography</option>
+              <option>Candid Photography</option>
+              <option>Baby Shoot</option>
+              <option>Event Photography</option>
+              <option>Drone & Videography</option>
+              <option>Pre-Wedding / Outdoor</option>
+            </select>
+          </label>
+          <label><span>Message</span><textarea name="message" rows="4"></textarea></label>
+          <button class="btn" type="submit">Send Enquiry</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 2025 Balaji Photo Studio</div>
+      <div class="socials">
+        <a href="https://www.instagram.com/balaji_photography01?igsh=ZDNoYzVwb3BrN2dp&utm_source=qr" aria-label="instagram">Instagram</a>
+        <a href="https://www.threads.com/@balaji_photography01?igshid=NTc4MTIwNjQ2YQ%3D%3D" aria-label="threads">Threads</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="close">✕</button>
+      <img src="" alt="preview" id="modalImg">
+    </div>
+  </div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

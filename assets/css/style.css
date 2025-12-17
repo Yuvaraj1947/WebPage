@@ -1,0 +1,85 @@
+/* Premium Black & Gold Theme */
+:root{
+  --bg:#0b0b0b;
+  --card:#111;
+  --muted:#bdbdbd;
+  --gold:#c6a667;
+  --white:#fff;
+  --container:1200px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:var(--bg); color:var(--muted); -webkit-font-smoothing:antialiased;}
+a{color:var(--gold); text-decoration:none}
+.container{max-width:var(--container); margin:0 auto; padding:0 20px}
+
+/* Header */
+.site-header{position:fixed; width:100%; top:0; left:0; z-index:40; backdrop-filter: blur(6px);}
+.header-inner{display:flex; align-items:center; justify-content:space-between; padding:18px 0;}
+.brand{color:var(--white); font-weight:700; letter-spacing:0.6px}
+.nav{display:flex; gap:18px}
+.nav a{color:var(--muted); padding:6px 8px; border-radius:6px}
+.nav a:hover{color:var(--white); background:rgba(255,255,255,0.03)}
+.ctas{display:flex; gap:10px}
+.btn{background:var(--gold); color:#000; padding:10px 14px; border-radius:8px; font-weight:600}
+.btn-ghost{background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--white); padding:9px 12px}
+
+/* Mobile nav toggle */
+.nav-toggle{display:none; background:transparent; border:0; color:var(--white); font-size:20px}
+
+/* HERO */
+.hero{min-height:78vh; display:flex; align-items:center; color:var(--white); background-size:cover; background-position:center; position:relative; margin-top:64px}
+.hero::after{content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.5));}
+.hero-inner{position:relative; z-index:2; padding:80px 0}
+.hero h1{font-size:42px; margin:0 0 10px; letter-spacing:0.6px}
+.lead{color:var(--muted); margin:0 0 20px; max-width:720px}
+.hero-actions{display:flex; gap:12px}
+
+/* Sections */
+.section{padding:80px 0}
+.section-title{color:var(--white); margin:0 0 8px; font-size:28px}
+.section-sub{color:var(--muted); margin:0 0 28px}
+
+/* Services grid */
+.services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+.service-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); padding:22px; border-radius:10px; border:1px solid rgba(255,255,255,0.03); color:var(--muted)}
+
+/* Gallery */
+.gallery-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:12px}
+.gallery-grid img{width:100%; height:220px; object-fit:cover; border-radius:8px; cursor:pointer; border:2px solid rgba(255,255,255,0.02)}
+
+/* About */
+.about-inner{display:flex; gap:30px; align-items:center}
+.about-text{flex:1}
+.about-image img{width:420px; border-radius:8px}
+
+/* Contact */
+.contact-grid{display:grid; grid-template-columns:1fr 420px; gap:30px}
+.contact-form{display:flex; flex-direction:column; gap:12px}
+.contact-form label{display:flex; flex-direction:column; gap:6px; color:var(--muted)}
+.contact-form input, .contact-form select, .contact-form textarea{padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:var(--white)}
+.contact-ctas{display:flex; gap:12px; margin-top:12px}
+
+/* Footer */
+.site-footer{border-top:1px solid rgba(255,255,255,0.03); padding:18px 0; margin-top:20px}
+.footer-inner{display:flex; justify-content:space-between; align-items:center; color:var(--muted)}
+
+/* Modal */
+.modal{position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,0.8); z-index:80}
+.modal-content{max-width:90%; max-height:90%}
+.modal-content img{width:100%; height:auto; border-radius:6px}
+.modal-close{position:absolute; right:8px; top:8px; background:transparent; border:0; color:var(--white); font-size:22px}
+
+/* Responsive */
+@media (max-width:900px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .about-inner{flex-direction:column}
+  .contact-grid{grid-template-columns:1fr}
+  .nav{display:none}
+  .nav-toggle{display:block}
+}
+@media (max-width:520px){
+  .hero h1{font-size:28px}
+  .hero-inner{padding:40px 0}
+  .gallery-grid img{height:160px}
+}
