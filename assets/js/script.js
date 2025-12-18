@@ -37,6 +37,6 @@ function submitForm(e){
   const message = f.message.value.trim();
   const subject = encodeURIComponent('Booking enquiry from website: ' + name);
   const body = encodeURIComponent('Name: '+name+'\nPhone: '+phone+'\nService: '+service+'\nMessage: '+message);
-  window.location.href = 'mailto:balajiphotostudio@example.com?subject='+subject+'&body='+body;
+  window.location.href = 'mailto:balajistudio120@gmail.com?subject='+subject+'&body='+body;
   return false;
 }
