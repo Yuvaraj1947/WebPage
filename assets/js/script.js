@@ -1,8 +1,15 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function(){
 
-  /* ------------ CONFIG ------------ */
-  const cloudName = "dqi98hqac"; // 🔴 CHANGE
-  const maxImages = 150;
+  /* ---------- MOBILE NAV ---------- */
+  const navToggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.nav');
+  navToggle && navToggle.addEventListener('click', () => {
+    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  /* ---------- CLOUDINARY CONFIG ---------- */
+  const cloudName = "dqi98hqac"; // 🔴 PUT YOUR CLOUD NAME
+  const maxImages = 200; // enough for future uploads
 
   const gallery = document.getElementById('gallery');
   const modal = document.getElementById('modal');
@@ -10,74 +17,50 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeBtn = document.querySelector('.modal-close');
   const tabs = document.querySelectorAll('.gallery-tabs button');
 
-  let currentImages = [];
+  let images = [];
   let currentIndex = 0;
 
-  /* ------------ LOAD GALLERY ------------ */
+  /* ---------- LOAD IMAGES FROM FOLDER ---------- */
   function loadGallery(folder){
     gallery.innerHTML = '';
-    currentImages = [];
+    images = [];
 
     for(let i = 1; i <= maxImages; i++){
       const img = document.createElement('img');
+
       img.src = `https://res.cloudinary.com/${cloudName}/image/upload/f_auto,q_auto,w_600/${folder}/${i}.jpg`;
       img.className = 'gallery-item';
       img.loading = 'lazy';
 
+      // remove missing images
       img.onerror = () => img.remove();
 
       img.addEventListener('click', () => {
-        openModal(img.src.replace('w_600', 'w_1600'), currentImages.indexOf(img));
+        currentIndex = images.indexOf(img);
+        modalImg.src = img.src.replace('w_600', 'w_1600');
+        modal.style.display = 'flex';
+        modal.setAttribute('aria-hidden','false');
       });
 
       gallery.appendChild(img);
-      currentImages.push(img);
+      images.push(img);
     }
   }
 
-  /* ------------ MODAL ------------ */
-  function openModal(src, index){
-    modalImg.src = src;
-    currentIndex = index;
-    modal.style.display = 'flex';
-    modal.setAttribute('aria-hidden','false');
-  }
-
-  function closeModal(){
+  /* ---------- MODAL CLOSE ---------- */
+  closeBtn && closeBtn.addEventListener('click', () => {
     modal.style.display = 'none';
     modal.setAttribute('aria-hidden','true');
-  }
-
-  function showNext(step){
-    currentIndex += step;
-    if(currentIndex < 0) currentIndex = currentImages.length - 1;
-    if(currentIndex >= currentImages.length) currentIndex = 0;
-
-    modalImg.src = currentImages[currentIndex].src.replace('w_600','w_1600');
-  }
-
-  /* ------------ EVENTS ------------ */
-  closeBtn.onclick = closeModal;
-  modal.onclick = e => e.target === modal && closeModal();
-
-  // Keyboard
-  document.addEventListener('keydown', e => {
-    if(modal.style.display !== 'flex') return;
-    if(e.key === 'Escape') closeModal();
-    if(e.key === 'ArrowRight') showNext(1);
-    if(e.key === 'ArrowLeft') showNext(-1);
   });
 
-  // Swipe (Mobile)
-  let startX = 0;
-  modalImg.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-  modalImg.addEventListener('touchend', e => {
-    let endX = e.changedTouches[0].clientX;
-    if(endX < startX - 50) showNext(1);
-    if(endX > startX + 50) showNext(-1);
+  modal && modal.addEventListener('click', e => {
+    if(e.target === modal){
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden','true');
+    }
   });
 
-  /* ------------ CATEGORY SWITCH ------------ */
+  /* ---------- CATEGORY SWITCH ---------- */
   tabs.forEach(btn => {
     btn.addEventListener('click', () => {
       tabs.forEach(b => b.classList.remove('active'));
@@ -86,12 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ------------ DEFAULT LOAD ------------ */
+  /* ---------- DEFAULT ---------- */
   loadGallery('wedding');
 });
 
 
-/* ------------ CONTACT FORM ------------ */
+/* ---------- CONTACT FORM ---------- */
 function submitForm(e){
   e.preventDefault();
   const f = e.target;
@@ -109,4 +92,6 @@ Message: ${f.message.value}`
 
   window.location.href =
     `mailto:balajistudio120@gmail.com?subject=${subject}&body=${body}`;
+
+  return false;
 }
