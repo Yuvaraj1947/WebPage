@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 
   /* ---------- CLOUDINARY CONFIG ---------- */
-  const S3_BASE = "https://balaji-studio-images.s3.ap-south-1.amazonaws.com"; // 🔴 PUT YOUR CLOUD NAME
+  const S3_BASE = "https://balaji-studio.s3.ap-south-1.amazonaws.com"; // 🔴 PUT YOUR CLOUD NAME
   const maxImages = 200; // enough for future uploads
 
   const gallery = document.getElementById('gallery');
