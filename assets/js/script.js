@@ -7,6 +7,20 @@ document.addEventListener('DOMContentLoaded', function(){
     nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
   });
 
+  <script>
+  document.querySelectorAll('.gallery-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const folder = button.dataset.folder;
+
+      // Base S3 URL
+      const baseUrl = "https://balaji-studio.s3.us-east-1.amazonaws.com/";
+
+      // Redirect to folder
+      window.location.href = baseUrl + folder + "/";
+    });
+  });
+</script>
+
   /* ---------- CLOUDINARY CONFIG ---------- */
   const cloudName = "dqi98hqac"; 
   const maxImages = 200;
