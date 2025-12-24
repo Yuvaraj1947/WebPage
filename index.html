@@ -59,30 +59,27 @@
     </section>
 
     <!-- Portfolio -->
-   <img src="assets/images/marriage.jpeg"
-     class="gallery-item"
-     onclick="openCategory('wedding')">
+    <section id="portfolio" class="section portfolio">
+      <div class="container">
+        <h2 class="section-title">Featured Work</h2>
+        <p class="section-sub">A curated selection from recent shoots.</p>
 
-    <img src="assets/images/Pre_Wedding.jpeg"
-         class="gallery-item"
-         onclick="openCategory('prewedding')">
-    
-    <img src="assets/images/Drone.jpeg"
-         class="gallery-item"
-         onclick="openCategory('drone')">
-    
-    <img src="assets/images/event.jpg"
-         class="gallery-item"
-         onclick="openCategory('event')">
-    
-    <img src="assets/images/BabyShower.jpeg"
-         class="gallery-item"
-         onclick="openCategory('baby_shower')">
-    
-    <img src="assets/images/Candid.jpeg"
-         class="gallery-item"
-         onclick="openCategory('cinematic')">
+        <!-- Gallery Tabs -->
+        <div class="gallery-tabs">
+          <button class="active" data-folder="wedding">Wedding</button>
+          <button data-folder="candid">Candid</button>
+          <button data-folder="baby">Baby Shower</button>
+          <button data-folder="event">Event</button>
+          <button data-folder="drone">Drone</button>
+          <button data-folder="prewedding">Pre Wedding</button>
+        </div>
 
+        <!-- Gallery Container -->
+        <div id="gallery" class="gallery-grid">
+          <!-- Cloudinary images will load here automatically -->
+        </div>
+      </div>
+    </section>
 
     <!-- About -->
     <section id="about" class="section about">
