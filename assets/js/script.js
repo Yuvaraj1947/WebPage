@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 
   /* ---------- CLOUDINARY CONFIG ---------- */
-  const S3_BASE = "https://balaji-studio.s3.ap-south-1.amazonaws.com"; // 🔴 PUT YOUR CLOUD NAME
-  const maxImages = 200; // enough for future uploads
+  const cloudName = "dqi98hqac"; 
+  const maxImages = 200;
 
   const gallery = document.getElementById('gallery');
   const modal = document.getElementById('modal');
@@ -18,33 +18,29 @@ document.addEventListener('DOMContentLoaded', function(){
   const tabs = document.querySelectorAll('.gallery-tabs button');
 
   let images = [];
-  let currentIndex = 0;
 
-  /* ---------- LOAD IMAGES FROM FOLDER ---------- */
   function loadGallery(folder){
-  gallery.innerHTML = '';
-  images = [];
+    gallery.innerHTML = '';
+    images = [];
 
-  for(let i = 1; i <= maxImages; i++){
-    const img = document.createElement('img');
+    for(let i = 1; i <= maxImages; i++){
+      const img = document.createElement('img');
 
-    img.src = `${S3_BASE}/${folder}/${i}.jpg`;
-    img.className = 'gallery-item';
-    img.loading = 'lazy';
+      img.src = `https://res.cloudinary.com/${cloudName}/image/upload/f_auto,q_auto,w_600/${folder}/${i}.jpg`;
+      img.className = 'gallery-item';
+      img.loading = 'lazy';
+      img.onerror = () => img.remove();
 
-    img.onerror = () => img.remove();
+      img.addEventListener('click', () => {
+        modalImg.src = img.src.replace('w_600', 'w_1600');
+        modal.style.display = 'flex';
+        modal.setAttribute('aria-hidden','false');
+      });
 
-    img.addEventListener('click', () => {
-      modalImg.src = img.src;
-      modal.style.display = 'flex';
-      modal.setAttribute('aria-hidden','false');
-    });
-
-    gallery.appendChild(img);
-    images.push(img);
+      gallery.appendChild(img);
+      images.push(img);
+    }
   }
-}
-
 
   /* ---------- MODAL CLOSE ---------- */
   closeBtn && closeBtn.addEventListener('click', () => {
@@ -71,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function(){
   /* ---------- DEFAULT ---------- */
   loadGallery('wedding');
 });
-
 
 /* ---------- CONTACT FORM ---------- */
 function submitForm(e){
