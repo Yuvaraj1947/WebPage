@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function(){
       const folder = button.dataset.folder;
 
       // Base S3 URL
-      const baseUrl = "https://balaji-studio.s3.us-east-1.amazonaws.com/";
+      const baseUrl = "arn:aws:s3:::balaji-studio/";
 
       // Redirect to folder
       window.location.href = baseUrl + folder + "/";
